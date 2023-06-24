@@ -68,6 +68,7 @@ body {
 .navbar .nav-item .nav-link {
   position: relative;
   color: #fff;
+  transition: all 0.3s;
 }
 #about .about-me:after,
 .navbar .nav-link.active::before,
@@ -90,18 +91,14 @@ body {
   color: var(--main-color) !important;
   border-color: var(--main-color);
 }
+
 .navbar-toggler {
   border: none;
 }
 .navbar-toggler:focus {
   box-shadow: none;
 }
-.nav #portfolio .scaling-layer img,
-.navbar .nav-link {
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
-}
+
 #about .morgan-data span,
 .navbar .nav-link.active {
   color: var(--main-color) !important;
@@ -208,7 +205,12 @@ body {
 #portfolio .scaling-layer {
   overflow: hidden;
 }
-#portfolio .scaling-layer:hover img {
+#portfolio .scaling-layer img {
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+#portfolio .scaling-layer img:hover {
   -webkit-transform: scale(1.2, 1.2);
   -ms-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
