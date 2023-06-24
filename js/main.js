@@ -2,15 +2,37 @@ const arrowTop = document.querySelector(".arrow-up");
 const allSections = Array.from(document.getElementsByTagName("section"));
 const allLinks = Array.from(document.querySelectorAll(".nav-link"));
 const bars = document.querySelectorAll(".progress-bar");
+const navBar = document.querySelector(".navbar");
+const logo = document.querySelector(".logo");
+const burgerIcon = document.querySelector(".burger-icon");
 let currentSec = "";
 
 arrowTop.addEventListener("click", scrollToTop);
 window.addEventListener("scroll", () => {
   activeLink();
+  changeNavbarColor();
   displayArrowBtn();
   increaseprogressBar();
 });
 window.onload = typingEffect;
+
+function changeNavbarColor() {
+  if (document.documentElement.scrollTop >= allSections[1].offsetTop) {
+    logo.classList.add("text-black");
+    burgerIcon.classList.remove("text-white");
+    navBar.classList.add("bg-white", "shadow");
+    allLinks.forEach((link) => {
+      link.classList.add("text-black");
+    });
+  } else {
+    burgerIcon.classList.add("text-white");
+    logo.classList.remove("text-black");
+    navBar.classList.remove("bg-white", "shadow");
+    allLinks.forEach((link) => {
+      link.classList.remove("text-black");
+    });
+  }
+}
 
 function checkCurrentSec() {
   allSections.forEach((sec) => {
